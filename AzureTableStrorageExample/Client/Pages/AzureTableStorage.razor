@@ -1,0 +1,59 @@
+﻿@page "/azuretablestorage"
+
+@using AzureTableStrorageExample.Shared
+@inject HttpClient Http
+
+
+<h3>AzureTableStorage</h3>
+
+@if (IsBusy)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lastname</th>
+                <th>FirstName</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Nickname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in people)
+            {
+            <tr>
+                <td>@person?.PartitionKey</td>
+                <td>@person?.RowKey</td>
+                <td>@person?.Age</td>
+                <td>@person?.Email</td>
+                <td>@person?.PhoneNumber</td>
+                <td>@person?.NickName</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private List<PersonEntity> people;
+    private bool IsBusy = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsBusy = true;
+        var response = await Http.GetAsync("people");
+        if (response.IsSuccessStatusCode)
+        {
+            people = await response.Content.ReadFromJsonAsync<List<PersonEntity>>();
+        }
+
+        IsBusy = false;
+    }
+
+}
