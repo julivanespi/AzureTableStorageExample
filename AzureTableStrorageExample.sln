@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStrorageExample.Server", "AzureTableStrorageExample\Server\AzureTableStrorageExample.Server.csproj", "{05D91149-7A9B-4BDD-86D7-389B8A7A888D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTableStrorageExample.Server", "AzureTableStrorageExample\Server\AzureTableStrorageExample.Server.csproj", "{05D91149-7A9B-4BDD-86D7-389B8A7A888D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStrorageExample.Client", "AzureTableStrorageExample\Client\AzureTableStrorageExample.Client.csproj", "{C947091C-9753-488A-A2D4-687EC706D6A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTableStrorageExample.Client", "AzureTableStrorageExample\Client\AzureTableStrorageExample.Client.csproj", "{C947091C-9753-488A-A2D4-687EC706D6A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStrorageExample.Shared", "AzureTableStrorageExample\Shared\AzureTableStrorageExample.Shared.csproj", "{746EFDE5-AA1A-40DF-8A3D-74B1D9BD6AD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTableStrorageExample.Shared", "AzureTableStrorageExample\Shared\AzureTableStrorageExample.Shared.csproj", "{746EFDE5-AA1A-40DF-8A3D-74B1D9BD6AD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
