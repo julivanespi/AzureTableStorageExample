@@ -12,6 +12,7 @@ namespace AzureTableStrorageExample.Server.Services
     {
         Task AddPersonAsync(PersonEntity person);
         Task<List<PersonEntity>> GetPeopleAsync();
+        Task<PersonEntity> GetPersonAsync(string LastName, string firstName);
     }
 
     public class TableService : ITableService
@@ -48,6 +49,35 @@ namespace AzureTableStrorageExample.Server.Services
             } while (token != null);
 
             return entities;
+        }
+
+        public async Task<PersonEntity> GetPersonAsync(string lastName, string firstName)
+        {
+            try
+            {
+                TableOperation retrieveOperation = TableOperation.Retrieve<PersonEntity>(lastName, firstName);
+                TableResult result = await GetTable().ExecuteAsync(retrieveOperation);
+                // if you wanted to execute sync
+                // TableResult resultt = GetTable().Execute(retrieveOperation);
+                PersonEntity customer = result.Result as PersonEntity;
+                if (customer != null)
+                {
+                    Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
+                }
+
+                if (result.RequestCharge.HasValue)
+                {
+                    Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
+                }
+
+                return customer;
+            }
+            catch (StorageException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+                throw;
+            }
         }
 
         private CloudTable GetTable()

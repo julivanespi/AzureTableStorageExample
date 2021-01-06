@@ -37,35 +37,6 @@
 
 </EditForm>
 
-@*<form>
-        <div class="form-group">
-            <label for="exampleInputText1">Lastname</label>
-            <input @bind-value=Person.PartitionKey type="text" class="form-control" id="exampleInputText1" placeholder="Enter lastname" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputText2">Firstname</label>
-            <input @bind-value=Person.RowKey type="email" class="form-control" id="exampleInputText2" placeholder="Enter firstname" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input @bind-value=@Person.Email type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputText3">Nickname</label>
-            <input @bind-value=@Person.NickName type="text" class="form-control" id="exampleInputText3" placeholder="Enter nickname" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputText4">Phone number</label>
-            <input @bind-value=@Person.PhoneNumber type="text" class="form-control" id="exampleInputText4" placeholder="Enter phone number" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputText5">Age</label>
-            <input @bind-value=@Person.PhoneNumber type="text" class="form-control" id="exampleInputText5" placeholder="Enter your age" required>
-        </div>
-        <button type="submit" class="btn btn-primary" @onclick="() => SubmitPerson(Person)">Submit</button>
-    </form>*@
-
 @code {
 
     private PersonEntity Person = new PersonEntity();

@@ -1,0 +1,36 @@
+﻿@page "/julio"
+
+@using AzureTableStrorageExample.Shared
+@inject HttpClient Http
+
+<h3>Julio</h3>
+
+<h1>@person?.PartitionKey</h1>
+<h1>@person?.RowKey</h1>
+<h1>@person?.Age</h1>
+<h1>@person?.NickName</h1>
+<h1>@person?.Email</h1>
+<h1>@person?.PhoneNumber</h1>
+
+@code {
+    private PersonEntity person;
+    private bool IsBusy = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsBusy = true;
+
+        await FetchJulio();
+
+        IsBusy = false;
+    }
+
+    private async Task FetchJulio()
+    {
+        var response = await Http.GetAsync("people/person?lastName=Espinosa&firstName=Julio");
+        if (response.IsSuccessStatusCode)
+        {
+            person = await response.Content.ReadFromJsonAsync<PersonEntity>();
+        }
+    }
+}

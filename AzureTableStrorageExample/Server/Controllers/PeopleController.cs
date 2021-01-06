@@ -31,10 +31,17 @@ namespace AzureTableStrorageExample.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetPeople()
         {
             var people = await _tableService.GetPeopleAsync();
             return Ok(people);
+        }
+
+        [HttpGet("person")]
+        public async Task<IActionResult> GetPerson([FromQuery]string lastName, [FromQuery]string firstName)
+        {
+            var person = await _tableService.GetPersonAsync(lastName, firstName);
+            return Ok(person);
         }
     }
 }
